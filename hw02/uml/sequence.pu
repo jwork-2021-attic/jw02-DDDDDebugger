@@ -1,0 +1,56 @@
+@startuml sequence diagram
+
+participant File
+actor Geezer #Gainsboro
+control Sorter
+control Writer
+queue Line
+actor Gourd1 #cc0000
+actor Gourd2 #ffa500
+actor Gourd3 #ffe94f
+actor Gourd4 #4e9a06
+actor Gourd5 #32afff
+actor Gourd6 #729fcf
+actor Gourd7 #ad7fa8
+
+activate Line
+
+Line -[#Green]> Gourd1: put
+activate Gourd1 #cc0000
+Line -[#Green]> Gourd2: put
+activate Gourd2 #ffa500
+Line -[#Green]> Gourd3: put
+activate Gourd3 #ffe94f
+Line -[#Green]> Gourd4: put
+activate Gourd4 #4e9a06
+Line -[#Green]> Gourd5: put
+activate Gourd5 #32afff
+Line -[#Green]> Gourd6: put
+activate Gourd6 #729fcf
+Line -[#Green]> Gourd7: put
+activate Gourd7 #ad7fa8
+
+Geezer -> Sorter: setSorter()
+activate Sorter
+Sorter -> Geezer: Done
+deactivate Sorter
+
+Geezer -> Line: lineUp()
+||50||
+Line -> Writer: log
+deactivate Line
+
+activate Writer
+Writer -> File: write log
+Writer -> File: flush
+Writer -> File: close
+deactivate Writer
+deactivate Gourd1
+deactivate Gourd2
+deactivate Gourd3
+deactivate Gourd4
+deactivate Gourd5
+deactivate Gourd6
+deactivate Gourd7
+
+@enduml

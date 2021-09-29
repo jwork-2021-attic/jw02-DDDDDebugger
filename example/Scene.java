@@ -17,6 +17,16 @@ public class Scene {
         line.put(Gourd.SIX, 4);
         line.put(Gourd.SEVEN, 0);
 
+        //#region for test
+        System.out.println(Gourd.ONE.toString());
+        System.out.println(Gourd.TWO.toString()); 
+        System.out.println(Gourd.THREE.toString()); 
+        System.out.println(Gourd.FOUR.toString()); 
+        System.out.println(Gourd.FIVE.toString()); 
+        System.out.println(Gourd.SIX.toString());      
+        System.out.println(Gourd.SEVEN.toString()); 
+        //#endregion
+
         Geezer theGeezer = Geezer.getTheGeezer();
 
         Sorter sorter = new BubbleSorter();

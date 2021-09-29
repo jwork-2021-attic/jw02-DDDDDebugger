@@ -1,0 +1,117 @@
+@startuml class
+
+Interface Sorter{
+
+    + void load(int[] elements)
+    + void sort()
+    + String getPlan()
+
+}
+
+Interface Linable{
+
+    + void setPosition(Position position)
+    + Position getPosition()
+    + int getValue()
+    
+}
+
+class Bogy implements Linable{
+    
+    {static} Bogy[] bogys
+    - int rgb_R
+    - int rgb_G
+    - int rgb_B
+    - int rank
+    - String name
+    - Position position
+    
+
+    + {static} Bogy getBogyByRank(int _rank)
+    + Bogy(String _name, int _rank, int color_r, int color_g, int color_b)
+    + int getRank()
+    + swapPosition(Bogy another) 
+
+}
+
+class SnakeWoman extends Bogy{
+
+    - {static} SnakeWoman theSnakeWoman
+    - Sorter m_Sorter
+    - SnakeWoman(final int r, final int g, final int b)
+    
+
+    + {static} SnakeWoman getTheSnakeWoman()
+    - String[] parsePlan(final String plan)
+    - execute(final String step
+    + setSorter(final Sorter sorter)
+    + String lineUp(final Line line)
+    
+}
+
+class Position {
+
+    - Linable linable
+
+    + Position(Linable linable)
+    + setLinable(Linable linable)
+
+}
+
+class Line {
+
+    - Position[] positions
+
+    + Line(int length)
+    + put(Linable linable, int i)
+    + Linable get(int i)
+    + Linable[] toArray()
+
+}
+
+Line +-- "inner class" Position
+
+class Matrix {
+    - Line[] lines
+    - int m_rows
+    - int m_columns
+
+    + Matrix(int rows, int columns)
+    + void put(Linable linable, int i) 
+    + Linable[] toArray()
+    --@override--
+    + String toString() 
+
+}
+
+Line *-- Matrix: 包含
+
+class QuickSorter implements Sorter{
+    - String plan = ""
+    - int[] elements
+
+    - swap(int i, int j)
+    - quickSort(int[] a, int left, int right)
+
+}
+
+class SelectSorter implements Sorter{
+    - String plan = ""
+    - int[] elements
+
+    - swap(int i, int j)
+}
+
+class ReadColor {
+
+    - {static} int colornum
+    
+    + {static} int[] getColor(String imgpath)
+}
+
+class Scene {
+    + {static} int bogynum = 256
+    + {static} main(String[] args)
+}
+
+@enduml
