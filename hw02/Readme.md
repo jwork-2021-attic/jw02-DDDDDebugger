@@ -54,4 +54,4 @@
 
 快速排序→ [戳这里](https://www.bilibili.com/video/BV19L4y187AG)
 
-选择排序→ [戳这里](https://www.bilibili.com/video/BV1M64y1h7g)
+选择排序→ [戳这里](https://www.bilibili.com/video/BV1M64y1h7g9)
